@@ -1,0 +1,89 @@
+Here are different methods for checking directory existence in Bash with error handling:
+
+````markdown name=check_directory_existence.md
+### Method 1: Using `test` command
+
+```bash
+DIR="/path/to/directory"
+
+if test -d "$DIR"; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 2: Using `[` (single bracket)
+
+```bash
+DIR="/path/to/directory"
+
+if [ -d "$DIR" ]; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 3: Using `[[` (double bracket)
+
+```bash
+DIR="/path/to/directory"
+
+if [[ -d "$DIR" ]]; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 4: Using `stat` command
+
+```bash
+DIR="/path/to/directory"
+
+if stat "$DIR" > /dev/null 2>&1; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 5: Using `ls` command
+
+```bash
+DIR="/path/to/directory"
+
+if ls "$DIR" > /dev/null 2>&1; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 6: Using `find` command
+
+```bash
+DIR="/path/to/directory"
+
+if find "$DIR" -maxdepth 0 > /dev/null 2>&1; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+
+### Method 7: Using `file` command
+
+```bash
+DIR="/path/to/directory"
+
+if file "$DIR" | grep -q "directory"; then
+  echo "Directory exists."
+else
+  echo "Directory does not exist."
+fi
+```
+````
+
+Each of these methods can be used to check for the existence of a directory in Bash, and they all include error handling to manage cases where the directory does not exist.
