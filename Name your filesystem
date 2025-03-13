@@ -1,0 +1,4 @@
+git branch -m main 3.8.1
+git fetch origin
+git branch -u origin/3.8.0 3.8.0
+git remote set-head origin -a
